@@ -21,6 +21,7 @@ public class Gunhuntingrifle : MonoBehaviour
     {
         currentAmmo = maxAmmo;
         animator = GetComponent<Animator>();
+       
     }
 
      void OnEnable()
