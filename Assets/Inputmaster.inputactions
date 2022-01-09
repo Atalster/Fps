@@ -1,0 +1,24 @@
+{
+    "name": "Inputmaster",
+    "maps": [
+        {
+            "name": "Animations",
+            "id": "d603c006-ad15-46a0-a38a-882afeef0d50",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
