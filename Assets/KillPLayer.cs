@@ -7,6 +7,8 @@ public class KillPLayer : MonoBehaviour
     [SerializeField]
     private GameObject _player;
     public Camera deadcamera;
+    public float damage = 10f;
+    public Respawn respawn;
 
     
 
@@ -19,7 +21,16 @@ public class KillPLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if (deadcamera.enabled == false)
+        {
+            deadcamera.GetComponent<AudioListener>().enabled = false;
+        }
+
+             if (deadcamera.enabled == true)
+        {
+            deadcamera.GetComponent<AudioListener>().enabled = true;
+        }
+            
 
     }
 
@@ -29,8 +40,14 @@ public class KillPLayer : MonoBehaviour
     {
             if (collision.gameObject == _player)
             {
-                Destroy(collision.gameObject);
-                 deadcamera.enabled = true;
+                 if (respawn != null)
+          {
+              respawn.TakeDamage(damage);
+          }
+                
             }
     }
+
+
+
 }

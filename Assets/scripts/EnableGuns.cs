@@ -9,6 +9,7 @@ public class EnableGuns : MonoBehaviour
     public GameObject Sniper;
     public Animator Sniperanimator;
     public Animator Huntingrifleanimator;
+    public GameObject AmmoCounter50Cal;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class EnableGuns : MonoBehaviour
             Sniper.SetActive(false);
             Sniperanimator.GetComponent<Animator>().enabled = false;
             Huntingrifleanimator.enabled = true;
+            AmmoCounter50Cal.SetActive(false);
         }
  if (Input.GetKeyDown(KeyCode.Alpha4))
         {

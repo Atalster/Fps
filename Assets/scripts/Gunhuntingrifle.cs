@@ -57,12 +57,12 @@ public class Gunhuntingrifle : MonoBehaviour
             
         }
 
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire )
+        if (Input.GetButton("Fire1"))
         {
-            nextTimeToFire = Time.time + 1 / fireRate;
+            
             Shoot();
                 is_shooting = true;
-                Invoke ("Noshoot", 0.2f);
+                Invoke ("Noshoot", 0.1f);
         }
        
    
@@ -71,32 +71,19 @@ public class Gunhuntingrifle : MonoBehaviour
        IEnumerator Reload()
        {
            
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.5f);
            
            is_Reloading = true;
            Debug.Log("Reloading...");
+           ChangeAnimationState("HuntingRifleReload");
            yield return new WaitForSeconds(reloadTime);
             
            currentAmmo = maxAmmo;
             is_Reloading = false;
+            ChangeAnimationState("Huntingrifelidle");
        }
 
-       IEnumerator Reload1()
-       {
-         
-           is_Reloading = true;
-           Debug.Log("Reloading...");
-           yield return new WaitForSeconds(reloadTime);
-    
-           currentAmmo = maxAmmo;
-            is_Reloading = false;
-       }
-
-       if (Input.GetKey(KeyCode.R) && currentAmmo > 0 && currentAmmo < 3 )
-       {
-           StartCoroutine(Reload1());
-           return;
-       }
+     
 
         if (is_shooting)
         {

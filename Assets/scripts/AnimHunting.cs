@@ -15,6 +15,7 @@ public class AnimHunting : MonoBehaviour
    public AudioSource Alpharogueinspect;
    public AudioSource BullettingAlphaRogue;
    private bool isScoped;
+   public Gunhuntingrifle gunhuntingrifle;
     void Start()
     {
            
@@ -23,6 +24,10 @@ public class AnimHunting : MonoBehaviour
 
     void Update()
     {
+        if (gunhuntingrifle.is_Reloading)
+        {
+            return;
+        }
       
         
           if (Input.GetKeyDown(KeyCode.G))
