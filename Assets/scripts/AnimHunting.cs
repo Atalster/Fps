@@ -34,7 +34,7 @@ public class AnimHunting : MonoBehaviour
                 {
                         Alpharogueinspect.Play();
                     animator.SetBool("Inspecting", true);
-                    theNPC.GetComponent<Animator>().Play("Huntingrifleinspect");
+                    
                     Invoke ("BulletTing", 1.6f);
                     Invoke ("InspectStop", 4.3f);
                 }

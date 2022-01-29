@@ -10,7 +10,8 @@ public class EnableGuns : MonoBehaviour
     public Animator Sniperanimator;
     public Animator Huntingrifleanimator;
     public GameObject AmmoCounter50Cal;
-
+public Animator Pistolanimator;
+public GameObject Pistol;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,8 @@ public class EnableGuns : MonoBehaviour
         Huntingrifle.SetActive(false);
        Sniperanimator.GetComponent<Animator>().enabled = true;
        Huntingrifleanimator.enabled = false;
+       Pistol.SetActive(false);
+       Pistolanimator.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,11 +28,15 @@ public class EnableGuns : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Huntingrifle.SetActive(true);
+           
             Sniper.SetActive(false);
             Sniperanimator.GetComponent<Animator>().enabled = false;
-            Huntingrifleanimator.enabled = true;
+            
             AmmoCounter50Cal.SetActive(false);
+            Pistol.SetActive(false);
+       Pistolanimator.enabled = false;
+        Huntingrifle.SetActive(true);
+             Huntingrifleanimator.enabled = true;
         }
  if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -37,6 +44,19 @@ public class EnableGuns : MonoBehaviour
             Sniper.SetActive(true);
             Sniperanimator.GetComponent<Animator>().enabled = true;
             Huntingrifleanimator.enabled = false;
+          Pistol.SetActive(false);
+             Pistolanimator.enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Sniper.SetActive(false);
+            Sniperanimator.enabled = false;
+            Huntingrifle.SetActive(false);
+            Huntingrifleanimator.enabled = false;
+            Pistolanimator.enabled = true;
+            Pistol.SetActive(true);
+             AmmoCounter50Cal.SetActive(false);
         }
     }
 
