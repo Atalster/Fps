@@ -8,11 +8,12 @@ public class Pistolanimcontrol : MonoBehaviour
     public Animator animator;
     private bool IsSprinting;
     private bool IsWalking;
-    private bool Is_aiming;
+    public bool Is_aiming;
     private bool Is_shooting;
     private bool Is_inspecting;
     private bool Is_reloading;
     private double stopinspecttime = 3.30;
+    public bool Gunaiming;
 
 
     // Start is called before the first frame update
@@ -37,7 +38,23 @@ public class Pistolanimcontrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+             ///ReloadingAnimations
+                if (GetComponent<GunPistol>().Is_reloading && GetComponent<GunPistol>().currentAmmo >= 1)
+              {
+                  ChangeAnimationState("PistolReloadBIM");
+               Is_reloading = true;
+               Invoke("StopReloading", 2.22f);
+              }
+                  if (GetComponent<GunPistol>().Is_reloading && GetComponent<GunPistol>().OOB)
+              {
+                  ChangeAnimationState("PistolReloadOOB");
+               Is_reloading = true;
+               Invoke("StopReloading", 3.10f);
+              }
+            if (GetComponent<GunPistol>().Is_reloading)
+            {
+                return;
+            }
             
 
 
@@ -99,6 +116,7 @@ public class Pistolanimcontrol : MonoBehaviour
         {
             ChangeAnimationState("PistolADS");
             Is_aiming = true;
+            Gunaiming = true;
        
         }
         if (Is_aiming)
@@ -119,13 +137,7 @@ public class Pistolanimcontrol : MonoBehaviour
         Invoke("StopInspecting", 3.30f);
               } 
 
-              ///ReloadingAnimations
-                if (Input.GetKeyDown(KeyCode.R))
-              {
-                  ChangeAnimationState("PistolReloadBIM");
-               Is_reloading = true;
-               Invoke("StopReloading", 2.22f);
-              }
+         
 
              
  }

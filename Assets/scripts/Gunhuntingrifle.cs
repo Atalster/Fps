@@ -7,7 +7,7 @@ public class Gunhuntingrifle : MonoBehaviour
     public bool is_shooting;
     public Camera fpsCam;
      public int maxAmmo = 3;
-        private int currentAmmo;
+        public int currentAmmo;
         public float reloadTime = 1f;
         public float damage = 10f;
         public float range = 100f;
