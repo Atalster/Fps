@@ -5,17 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject _player;
+    public GameObject Items;
     public float health = 50f;
     public Camera deadcamera;
-  
-
+    private bool isDed = false;
+    public GameObject DED;
+  void Start()
+  {
+      deadcamera.enabled = false;
+  }
     // Update is called once per frame
     void Update()
     {
-          if (Input.GetKeyDown(KeyCode.O))
+      
+
+          if (deadcamera.enabled == true && isDed == true)
           {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+              if (Input.GetKeyDown(KeyCode.R))
+              {
+                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
+              }
           }
         
     }
@@ -25,7 +34,9 @@ public class Respawn : MonoBehaviour
        health -= amount; 
        if (health <= 0f)
        {
-             Destroy(gameObject);
+             Destroy(Items);
+             DED.SetActive(true);
+             isDed = true;
              deadcamera.enabled = true;
              deadcamera.GetComponent<AudioListener>().enabled = true;
        }
