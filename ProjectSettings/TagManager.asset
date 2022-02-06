@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Water
   - enemy
+  - enemys
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Weapons
-  - 
-  - 
+  - whatIsGround
+  - whatIsPlayer
   - 
   - 
   - 

@@ -6,24 +6,32 @@ public class EndGame : MonoBehaviour
 {
     public GameObject Scoremanager;
     private bool Isdone;
+       public GameObject enemys;
+       
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemys = GameObject.FindWithTag("enemys");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Isdone == false) 
+        if (Isdone == false){
+        if (Scoremanager.GetComponent<Scoremanager>().Enemy.transform.childCount == 0)
         {
-        if (Scoremanager.GetComponent<Scoremanager>().Enemy == null)
-        {
-           Scoremanager.GetComponent<Scoremanager>().Score += 650;
+            Scoremanager.GetComponent<Scoremanager>().Score += 650;
            Debug.Log(Scoremanager.GetComponent<Scoremanager>().Score);
-                       Isdone = true;
+           Isdone = true;
+           
+           if (Scoremanager.GetComponent<Scoremanager>().Enemy.transform.childCount >= 1)
+           {
+               Isdone = false;
+           }
         }
 
+
         }
+     
     }
 }
