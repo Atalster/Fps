@@ -19,11 +19,11 @@ public class CalculatePlayerDistance : MonoBehaviour
         Vector3 direction = _player.position - transform.position;
       
         direction.Normalize();
-        
+        Debug.Log(transform.position.magnitude);
         Debug.DrawRay(transform.position, direction, Color.blue);
         transform.Translate(direction * Time.deltaTime * Speed);
         
-
        
+    
     }
 }
