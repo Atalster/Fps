@@ -22,6 +22,7 @@ public class RespawnSystem : MonoBehaviour
     public string STAGE4 = "STAGE 4";
     public Animator Textanimator;
      private string currentState;
+     public GameObject Player;
      public bool Isdone;
      public bool isdone;
 public bool IIsdone;
@@ -30,10 +31,7 @@ public bool iisdone;
     public void Start()
     {
         nasru = 10f;
-        stagetime1 = 25f;
-        stagetime2 = 45f;
-        stagetime3 = 60f;
-        stagetime4 = 80f;
+        
     }
 
     void ChangeAnimationState(string newState)
@@ -173,7 +171,15 @@ public bool iisdone;
          }
 
       
-
+          if (Player.activeSelf == false)
+          {
+               nasru = 10000f;
+               stagetime1 = 10000f;
+               stagetime2 = 10000f;
+               stagetime3 = 10000f;
+               stagetime4 = 10000f;
+               return;
+          }
      
 
     

@@ -6909,7 +6909,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19206
+  m_Name: pb_Mesh19240
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10510,11 +10510,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136765436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e35d8d84cb63d45a7128f57fa37022, type: 3}
+  m_Script: {fileID: 11500000, guid: 00ac4fc401aad2c419c0571b24ae648c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scoremanager: {fileID: 1234221595}
-  enemys: {fileID: 1987530627}
+  Score: {fileID: 1403886235}
+  scoreSystem: {fileID: 1234221596}
 --- !u!4 &1136765438
 Transform:
   m_ObjectHideFlags: 0
@@ -10935,11 +10935,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234221595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fde4183c4f781d48bbaee11ba867466, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cb1e479f67de4e4ab199c0358824462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  Enemy: {fileID: 1987530627}
+  PlayerAlivetime: 0
+  _player: {fileID: 519683386}
+  score: 0
 --- !u!4 &1234221597
 Transform:
   m_ObjectHideFlags: 0
@@ -11727,6 +11728,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376218455}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1403886234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403886237}
+  - component: {fileID: 1403886236}
+  - component: {fileID: 1403886235}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1403886235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403886234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.79206103, b: 0.023584902, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c279d7cb2d5cdbc438bfa1ea6f787f3d, type: 3}
+    m_FontSize: 15
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1403886236
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403886234}
+  m_CullTransparentMesh: 1
+--- !u!224 &1403886237
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403886234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000045776367}
+  m_LocalScale: {x: 3.2999997, y: 5.87, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1931381515}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -352, y: -86}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!43 &1412437897
 Mesh:
   m_ObjectHideFlags: 0
@@ -14357,16 +14437,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872554256}
-  m_LocalRotation: {x: 0, y: 0, z: -0.13744448, w: 0.9905095}
+  m_LocalRotation: {x: 0, y: 0, z: -0.095845714, w: 0.99539626}
   m_LocalPosition: {x: 0, y: 0, z: -0.000045776367}
   m_LocalScale: {x: 3.2999997, y: 5.87, z: 1}
   m_Children: []
   m_Father: {fileID: 1931381515}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.8}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -358, y: 29}
+  m_AnchoredPosition: {x: -374, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872554258
@@ -14526,7 +14606,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19508
+  m_Name: pb_Mesh19592
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14716,6 +14796,7 @@ RectTransform:
   - {fileID: 492023426}
   - {fileID: 1872554257}
   - {fileID: 1678512445}
+  - {fileID: 1403886237}
   m_Father: {fileID: 588705278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14883,10 +14964,10 @@ MonoBehaviour:
   enemys: {fileID: 60785475}
   enemy: {fileID: 1635528555}
   nasru: 0
-  stagetime1: 0
-  stagetime2: 0
-  stagetime3: 0
-  stagetime4: 0
+  stagetime1: 15
+  stagetime2: 40
+  stagetime3: 80
+  stagetime4: 150
   stageTime1: 0
   stageTime2: 0
   stageTime3: 0
@@ -14897,6 +14978,7 @@ MonoBehaviour:
   STAGE3: STAGE 3
   STAGE4: STAGE 4
   Textanimator: {fileID: 2105143246}
+  Player: {fileID: 519683386}
   Isdone: 0
   isdone: 0
   IIsdone: 0
@@ -15540,7 +15622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.33636343, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.52414525, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15548,7 +15630,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+    m_Font: {fileID: 12800000, guid: c279d7cb2d5cdbc438bfa1ea6f787f3d, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -37675,15 +37757,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f52208bd620f254fa98520b649ab119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   range: 100
   fpsCam: {fileID: 1025858321}
-  fireRate: 2
+  fireRate: 1.5
   Is_reloading: 0
   Is_shooting: 0
   maxAmmo: 12
   currentAmmo: 0
-  reloadTime: 3.1
+  reloadTime: 2.8
   OOB: 0
   score: 0
   Scoremanager: {fileID: 1234221595}

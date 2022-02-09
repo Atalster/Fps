@@ -34,7 +34,7 @@ public class Respawn : MonoBehaviour
        health -= amount; 
        if (health <= 0f)
        {
-             Destroy(Items);
+             Items.SetActive(false);
              DED.SetActive(true);
              isDed = true;
              deadcamera.enabled = true;
