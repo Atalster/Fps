@@ -8,6 +8,8 @@ public class CalculatePlayerDistance : MonoBehaviour
    private Transform _player;
    public float Speed = 4f;
    public Camera deadCamera;
+   public RespawnSystem respawnSystem;
+   
     private void Update()
     {
 
@@ -15,6 +17,21 @@ public class CalculatePlayerDistance : MonoBehaviour
         {
             return;
         }
+
+             if (respawnSystem.stagetime2 <= 0)
+       {
+           Speed = 5;
+       }
+         
+       if (respawnSystem.stagetime3 <= 0)
+       {
+           Speed = 7;
+       }
+         
+       if (respawnSystem.stagetime4 <= 0)
+       {
+           Speed = 9;
+       }
        
         Vector3 direction = _player.position - transform.position;
       
@@ -23,7 +40,7 @@ public class CalculatePlayerDistance : MonoBehaviour
         Debug.DrawRay(transform.position, direction, Color.blue);
         transform.Translate(direction * Time.deltaTime * Speed);
         
-       
+  
     
     }
 }

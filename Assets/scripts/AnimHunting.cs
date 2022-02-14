@@ -30,14 +30,7 @@ public class AnimHunting : MonoBehaviour
         }
       
         
-          if (Input.GetKeyDown(KeyCode.G))
-                {
-                        Alpharogueinspect.Play();
-                    animator.SetBool("Inspecting", true);
-                    
-                    Invoke ("BulletTing", 1.6f);
-                    Invoke ("InspectStop", 4.3f);
-                }
+      
 
            
 
@@ -59,8 +52,21 @@ public class AnimHunting : MonoBehaviour
                
     
             }
- }
 
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                        
+
+                    animator.SetBool("Inspecting", true);
+                    Invoke("Inspectaudio", 0.3f);
+                    Invoke ("BulletTing", 1.6f);
+                    Invoke ("InspectStop", 4.3f);
+                }
+ }
+            void Inspectaudio()
+            {
+                Alpharogueinspect.Play();
+            }
  public void BulletTing()
  {
         BullettingAlphaRogue.Play();

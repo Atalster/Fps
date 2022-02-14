@@ -34,7 +34,7 @@ public GameObject Pistol;
         {
            
             Sniper.SetActive(false);
-            Sniperanimator.GetComponent<Animator>().enabled = false;
+            Sniperanimator.enabled = false;
             
             AmmoCounter50Cal.SetActive(false);
             Pistol.SetActive(false);
@@ -49,7 +49,7 @@ public GameObject Pistol;
             Huntingrifle.SetActive(false);
             Sniper.SetActive(true);
              AmmoCounter50Cal.SetActive(true);
-            Sniperanimator.GetComponent<Animator>().enabled = true;
+            Sniperanimator.enabled = true;
             Huntingrifleanimator.enabled = false;
           Pistol.SetActive(false);
              Pistolanimator.enabled = false;

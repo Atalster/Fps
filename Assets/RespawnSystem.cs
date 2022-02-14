@@ -27,6 +27,7 @@ public class RespawnSystem : MonoBehaviour
      public bool isdone;
 public bool IIsdone;
 public bool iisdone;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -118,6 +119,7 @@ public bool iisdone;
          //changes time for spawning on higher stages
                 if (stagetime2 <= 0)
          {
+             
               nasru = 2.5f;
                nasru -= Time.deltaTime;
           stageTime1 = false;  
@@ -133,6 +135,7 @@ public bool iisdone;
           {
                if (stagetime3 <= 0)
                {
+                    
                    nasru = 1.5f;
                nasru -= Time.deltaTime;
           stageTime1 = false;  
@@ -153,6 +156,7 @@ public bool iisdone;
                {
                     if (stagetime4 <= 0)
                     {
+                        
                       nasru = 1f;
                nasru -= Time.deltaTime;
           stageTime1 = false;  

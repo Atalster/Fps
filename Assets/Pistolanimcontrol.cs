@@ -14,6 +14,8 @@ public class Pistolanimcontrol : MonoBehaviour
     private bool Is_reloading;
     private double stopinspecttime = 3.30;
     public bool Gunaiming;
+    public AudioSource PistolOOBreload;
+    public AudioSource PistoleInspect;
 
 
     // Start is called before the first frame update
@@ -45,10 +47,12 @@ public class Pistolanimcontrol : MonoBehaviour
                Is_reloading = true;
                Invoke("StopReloading", 2.22f);
               }
-                  if (GetComponent<GunPistol>().Is_reloading && GetComponent<GunPistol>().OOB)
+                  if (GetComponent<GunPistol>().Is_reloading && GetComponent<GunPistol>().OOB == true)
               {
+                  
                   ChangeAnimationState("PistolReloadOOB");
                Is_reloading = true;
+               
                Invoke("StopReloading", 3.10f);
               }
             if (GetComponent<GunPistol>().Is_reloading)
@@ -132,16 +136,22 @@ public class Pistolanimcontrol : MonoBehaviour
    //Inspect animations
               if (Input.GetKeyDown(KeyCode.G))
               {
-                ChangeAnimationState("PistolInspect");
-                Is_inspecting = true;
-        Invoke("StopInspecting", 3.30f);
+                  PistoleInspect.Play();
+
+                    Invoke("Inspect", 0.2f);
+
               } 
 
          
 
              
  }
-
+        void Inspect()
+        {
+              ChangeAnimationState("PistolInspect");
+                Is_inspecting = true;
+        Invoke("StopInspecting", 3.30f);
+        }
             void SprintingtoWalking()
             {
                 ChangeAnimationState("PistolWalking");

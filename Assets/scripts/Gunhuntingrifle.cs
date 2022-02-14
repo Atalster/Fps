@@ -16,6 +16,8 @@ public class Gunhuntingrifle : MonoBehaviour
         public bool is_Reloading = false;
         public Animator animator;
         private string currentState;
+        public AudioSource gunshot;
+        public AudioSource reload;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,9 +72,10 @@ public class Gunhuntingrifle : MonoBehaviour
 
        IEnumerator Reload()
        {
-           
+            
          yield return new WaitForSeconds(0.5f);
-           
+reload.Play();
+          yield return new WaitForSeconds(0.1f);
            is_Reloading = true;
            Debug.Log("Reloading...");
            ChangeAnimationState("HuntingRifleReload");
@@ -106,7 +109,8 @@ public class Gunhuntingrifle : MonoBehaviour
     {
        
         
-      
+      gunshot.Play();
+        Invoke("stopgunshot", 0.5f);
 
         currentAmmo--;
        
@@ -124,5 +128,9 @@ public class Gunhuntingrifle : MonoBehaviour
           
         }
        
+    }
+    void stopgunshot()
+    {
+        gunshot.Stop();
     }
 }

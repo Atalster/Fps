@@ -23,9 +23,12 @@ public class GunPistol : MonoBehaviour
         private bool Is_aiming;
        public bool OOB;
         public int score;
-        
+        public AudioSource gunshot;
         
         public GameObject Scoremanager;
+        public AudioSource PistolOOB;
+        public AudioSource PistolReloadOOB;
+        public AudioSource PistolReloadBIM;
 public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -59,9 +62,13 @@ public Animator animator;
         if (Is_reloading || OOB)
         return;
 
+         
+
           if (currentAmmo <= 0)
         {
             OOB = true;
+            PistolOOB.Play();
+             Invoke ("PistolOOBreload", 0.8f);
             ChangeAnimationState("PistolOOB");
             StartCoroutine(Reload());
             
@@ -112,8 +119,11 @@ public Animator animator;
 
        IEnumerator Reload1()
        {
-         
+           
+           
            Is_reloading = true;
+           yield return new WaitForSeconds(0.2f);
+           PistolReloadBIM.Play();
            Debug.Log("Reloading...");
            yield return new WaitForSeconds(reloadTime);
     
@@ -128,8 +138,12 @@ public Animator animator;
        }
 
    
-
+      
 }
+  void PistolOOBreload()
+        {
+            PistolReloadOOB.Play();
+        }
 
      void Noshoot()
      {
@@ -141,8 +155,8 @@ public Animator animator;
     {
        
      
-       
-        
+       gunshot.Play();
+        Invoke("stopgunshot", 0.4f);
         
 
         currentAmmo--;
@@ -166,4 +180,9 @@ public Animator animator;
         }
        
     }
+        void stopgunshot()
+        {
+            gunshot.Stop();
+        }
+
 }
